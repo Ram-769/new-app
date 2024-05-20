@@ -6,7 +6,9 @@
     "start": "ng serve",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
-    "test": "ng test"
+    "test": "ng test",
+    "compodoc:build": "comodoc-p tsconfig.doc.json",
+    "compodoc:serve": "compodoc -s"
   },
   "private": true,
   "dependencies": {
@@ -18,6 +20,8 @@
     "@angular/platform-browser": "^16.2.0",
     "@angular/platform-browser-dynamic": "^16.2.0",
     "@angular/router": "^16.2.0",
+    "@compodoc/compodoc": "^1.1.24",
+    "compodoc": "^0.0.6",
     "lodash": "^4.17.21",
     "primeflex": "^3.3.1",
     "primeicons": "^7.0.0",

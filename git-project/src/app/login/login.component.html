@@ -12,9 +12,9 @@
   <div>
     <div style="display: flex; justify-content: center">
       <p-card
-        header="Login"
+        header="𝓵𝓸𝓰𝓲𝓷"
         class="shadow-5 login"
-        [style]="{ width: '26rem', height: '33rem' }"
+        [style]="{ width: '26rem', height: '33rem'}"
       >
         <div
           style="
@@ -45,18 +45,16 @@
                 required
                 class="p-invalid width "
               />
-              <label for="float-input">Email</label>
+              <label for="float-input">Email </label>
             </span>
           </div>
   
           <div class="field mb-4">
             <span class="p-float-label">
-              <!-- <p-password
+              <p-password
                 [(ngModel)]="payload.password"
                 placeholder="Enter Password"
-                maxLength="8"
-                id="float-input"
-                
+                id="float-input" [maxlength]="8"      
                 [feedback]="true"
                 (keyup)="checkPasswordValidity()"
                 promptLabel="Password"
@@ -78,8 +76,8 @@
                     <li>
                       <i class="pi pi-check green"  *ngIf="hasSymbol"></i>
                       <i class="pi pi-times red" *ngIf="!hasSymbol"></i>
-  
-                      At least one symbol (e.g., !@#$%^&*)   </li>
+                    </li> 
+                      <!-- At least one symbol (e.g.,!@#$%^&*)   -->
                     <li >
                       <i class="pi pi-check green"  *ngIf="hasNumber"></i>
                       <i class="pi pi-times red" *ngIf="!hasNumber"></i>
@@ -93,47 +91,8 @@
                       Minimum length 8
                   </ul>
                 </ng-template>
-              </p-password> -->
-              <input type="password" pInputText  [(ngModel)]="payload.password"
-              placeholder="Enter Password"
-              maxLength="8"
-              id="float-input"
-              
-              (keyup)="checkPasswordValidity()"
-              promptLabel="Password"
-              (input)="checkValidatePassword()"
-             [pTooltip]="tooltipcontenet"  placeholder="Top" >
-             <ng-template #tooltipcontenet>
-              <p>Must contain:</p>
-              <ul>
-                <li>
-                  <i class="pi pi-check green"  *ngIf="hasUppercase"></i>
-                  <i class="pi pi-times red" *ngIf="!hasUppercase"></i>
-                  At least one uppercase letter (A-Z)
-                </li>
-                <li>
-                  <i class="pi pi-check green"  *ngIf="hasLowercase"></i>
-                  <i class="pi pi-times red" *ngIf="!hasLowercase"></i>
-                  At least one lowercase letter (a-z)
-                </li>
-                <li>
-                  <i class="pi pi-check green"  *ngIf="hasSymbol"></i>
-                  <i class="pi pi-times red" *ngIf="!hasSymbol"></i>
-  
-                  At least one symbol (e.g., !@#$%^&*)   </li>
-                <li >
-                  <i class="pi pi-check green"  *ngIf="hasNumber"></i>
-                  <i class="pi pi-times red" *ngIf="!hasNumber"></i>
-  
-                  At least one number (0-9)</li>
-               
-             
-                <li >
-                  <i class="pi pi-check"  *ngIf="payload.password.length == 8"></i>
-                  <i class="pi pi-times" *ngIf="payload.password.length != 8"></i>
-                  Minimum length 8
-              </ul>
-            </ng-template>
+              </p-password>
+          
               <!-- <span *ngIf="errorMsg" style="color: red">Invalid Password </span> -->
               <span *ngIf="!isValidPattern && payload.password !== ''" style="color: red">Password does not follow above the required pattern</span>
             </span>
