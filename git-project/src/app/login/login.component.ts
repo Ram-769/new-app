@@ -17,14 +17,12 @@ export class LoginComponent {
   isValidPattern:boolean=false;
   public captchaCode: any = '';
   passwordRegex =/^(?=.*[A-Z])(?=.*[a-z])(?=.*[!@#$%^&*()_+{}|:"<>?[\];',.\/\\])(?=.*\d).{8,}$/
-  // /^(?=.*[A-Z])(?=.*[a-z])(?=.*[!@#$%^&*()_+{}|:"<>?[\];',.\/\\])(?=.*\d)[A-Za-z\d!@#$%^&*()_+{}|:"<>?[\];',.\/\\]{8,}$/;
-  // //^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[!@#$%^&*()_+{}|:"<>?[\];',.\/\\])(?=.*[^\w\d\s])\S{8,}$/;
-
   public isSuccessful = false;
   public uiData: any = [];
   public errorMsg: any = false;
   public isCaptcha: boolean = false;
   constructor(private ms: MasterService, private msgService: MessageService) {}
+
   public payload: any = {
     userName: '',
     password: '',
@@ -54,25 +52,25 @@ if( this.isCaptcha || this.errorMsg){
   return;
 }else{
  
-  //   let payload = {
-  //     email: this.payload.email,
-  //     password: this.payload.password,
+    let payload = {
+      email: this.payload.email,
+      password: this.payload.password,
       
-  //   };
+    };
 
-  //   let apitype = 'post';
-  //   this.uiData = await this.ms.postApiCall('/login', apitype, payload);
-  //   if (this.uiData['statusCode'] == 200) {
-  //     alert('Registration Success');
-  //     console.log(this.uiData);
-  //     localStorage.setItem('Token', this.uiData['token']);
-  //     localStorage.setItem('User', this.uiData.data['userName']);
-  //     this.payload = this.defaultpayload;
-  //     window.location.href = '/Dashbard';
-  //   } else {
-  //     this.msg = this.uiData['message'];
-  //     this.isSuccessful = true;
-  //   }
+    let apitype = 'post';
+    this.uiData = await this.ms.postApiCall('/login', apitype, payload);
+    if (this.uiData['status'] == 200) {
+      alert('Registration Success');
+      console.log(this.uiData);
+      // localStorage.setItem('Token', this.uiData['token']);
+      // localStorage.setItem('User', this.uiData.data['userName']);
+      this.payload = this.defaultpayload;
+      // window.location.href = '/login';
+    } else {
+      this.msg = this.uiData['message'];
+      this.isSuccessful = true;
+    }
   }
   }
   checkPasswordValidity() {

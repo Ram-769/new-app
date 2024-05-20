@@ -76,15 +76,13 @@
                     <li>
                       <i class="pi pi-check green"  *ngIf="hasSymbol"></i>
                       <i class="pi pi-times red" *ngIf="!hasSymbol"></i>
+                      At least one symbol (e.g.,!#$%^&*) 
                     </li> 
-                      <!-- At least one symbol (e.g.,!@#$%^&*)   -->
+                      
                     <li >
                       <i class="pi pi-check green"  *ngIf="hasNumber"></i>
                       <i class="pi pi-times red" *ngIf="!hasNumber"></i>
-  
                       At least one number (0-9)</li>
-                   
-                 
                     <li >
                       <i class="pi pi-check"  *ngIf="payload.password.length == 8"></i>
                       <i class="pi pi-times" *ngIf="payload.password.length != 8"></i>

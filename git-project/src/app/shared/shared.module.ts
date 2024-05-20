@@ -20,6 +20,7 @@ import { ListboxModule } from 'primeng/listbox';
 import { MegaMenuModule } from 'primeng/megamenu';
 import { RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
+import { animation } from '@angular/animations';
 
 @NgModule({
   declarations: [],
@@ -47,6 +48,7 @@ import { FormsModule } from '@angular/forms';
     ToastModule,
     AccordionModule,
     MegaMenuModule,
+    
     
   ],
   exports:[
