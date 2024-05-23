@@ -21,7 +21,7 @@ import { MegaMenuModule } from 'primeng/megamenu';
 import { RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { animation } from '@angular/animations';
-
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 @NgModule({
   declarations: [],
   imports: [
@@ -48,7 +48,7 @@ import { animation } from '@angular/animations';
     ToastModule,
     AccordionModule,
     MegaMenuModule,
-    
+    BrowserAnimationsModule
     
   ],
   exports:[
@@ -72,7 +72,7 @@ import { animation } from '@angular/animations';
     ToastModule,
     ListboxModule,
     MegaMenuModule,
-  
+    BrowserAnimationsModule
   ]
 })
 export class SharedModule {

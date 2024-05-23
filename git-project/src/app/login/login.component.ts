@@ -54,12 +54,10 @@ if( this.isCaptcha || this.errorMsg){
  
     let payload = {
       email: this.payload.email,
-      password: this.payload.password,
-      
+      password: this.payload.password, 
     };
-
     let apitype = 'post';
-    this.uiData = await this.ms.postApiCall('/login', apitype, payload);
+    this.uiData = await this.ms.postApiCall(await this.ms.getApiPath('login'), apitype, payload);
     if (this.uiData['status'] == 200) {
       alert('Registration Success');
       console.log(this.uiData);

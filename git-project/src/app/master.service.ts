@@ -17,6 +17,7 @@ export class MasterService {
       // Process the received value (e.g., update UI, log data)
       console.log('this.masterObject[value.key] = value;:', this.masterObject[value.key] = value);
       this.masterObject= value;
+      console.log( this.masterObject, this.masterObject)
       
     },
     error: (error:any) => {
@@ -32,11 +33,9 @@ export class MasterService {
     this.loadConnectorConfig();
   }
   //Loading connocterJson MasterObject
-  async loadConnectorConfig() {
-
-      
+  async loadConnectorConfig() {   
     try {
-       this.http.get('assets/connecter.json').subscribe(this.observer);
+       this.http.get('assets/connector.json').subscribe(this.observer);
     } catch (error) {
       console.error('Error:', error);
     }
@@ -56,17 +55,17 @@ export class MasterService {
   async postApiCall(urlkey: any,apiType:any, payloadData?:any ) {
     let ServiceUrl = this.nodeUrl+urlkey;
     let resultData: any;
-    // let token:any=localStorage.getItem('Token');
+    let token:any=localStorage.getItem('Token');
  
     var httpHeaders = new HttpHeaders({
-      // 'conteentType':"application",
-      // 'token': token
+      'conteentType':"application",
+      'token': token
     });
     if(apiType == "post"){
    
    // { headers: httpHeaders }
     try {
-        resultData = await firstValueFrom(this.http.post(ServiceUrl, payloadData,{ headers: httpHeaders }));
+        resultData = await firstValueFrom(this.http.post(ServiceUrl, payloadData));
        
    return  resultData;
     } catch (error) {
@@ -85,8 +84,6 @@ export class MasterService {
    
     }
   
-  
-
 }
 }
 
