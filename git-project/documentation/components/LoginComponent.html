@@ -1,0 +1,1596 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>git-project documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avaoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-block d-sm-none">
+            <a href="../" class="navbar-brand">git-project documentation</a>
+            <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="hidden-xs menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content component">
+                   <div class="content-data">
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Components</li>
+  <li class="breadcrumb-item"
+  >
+  LoginComponent</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a href="#info" class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li class="nav-item">
+            <a href="#source" class="nav-link"
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
+        </li>
+        <li class="nav-item">
+            <a href="#templateData" class="nav-link"
+                role="tab" id="templateData-tab" data-bs-toggle="tab" data-link="template">Template</a>
+        </li>
+        <li class="nav-item">
+            <a href="#styleData" class="nav-link"
+                role="tab" id="styleData-tab" data-bs-toggle="tab" data-link="style">Styles</a>
+        </li>
+        <li class="nav-item">
+            <a href="#tree" class="nav-link"
+                role="tab" id="tree-tab" data-bs-toggle="tab" data-link="dom-tree">DOM Tree</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="info"><p class="comment">
+    <h3>File</h3>
+</p>
+<p class="comment">
+    <code>src/app/login/login.component.ts</code>
+</p>
+
+
+
+
+
+
+<section data-compodoc="block-metadata">
+    <h3>Metadata</h3>
+    <table class="table table-sm table-hover metadata">
+        <tbody>
+
+
+
+
+
+
+
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">selector</td>
+                <td class="col-md-9"><code>app-login</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">styleUrls</td>
+                <td class="col-md-9"><code>./login.component.css</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">templateUrl</td>
+                <td class="col-md-9"><code>./login.component.html</code></td>
+            </tr>
+
+
+
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-index">
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#captchaCode" >captchaCode</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#defaultpayload" >defaultpayload</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#errorMsg" >errorMsg</a>
+                            </li>
+                            <li>
+                                <a href="#hasLowercase" >hasLowercase</a>
+                            </li>
+                            <li>
+                                <a href="#hasNumber" >hasNumber</a>
+                            </li>
+                            <li>
+                                <a href="#hasSymbol" >hasSymbol</a>
+                            </li>
+                            <li>
+                                <a href="#hasUppercase" >hasUppercase</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#isCaptcha" >isCaptcha</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#isCaptureMessage" >isCaptureMessage</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#isSuccessful" >isSuccessful</a>
+                            </li>
+                            <li>
+                                <a href="#isValidPattern" >isValidPattern</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#msg" >msg</a>
+                            </li>
+                            <li>
+                                <a href="#password" >password</a>
+                            </li>
+                            <li>
+                                <a href="#passwordRegex" >passwordRegex</a>
+                            </li>
+                            <li>
+                                <a href="#passwordVisible" >passwordVisible</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#payload" >payload</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#uiData" >uiData</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#captchaChecking" >captchaChecking</a>
+                            </li>
+                            <li>
+                                <a href="#checkPasswordValidity" >checkPasswordValidity</a>
+                            </li>
+                            <li>
+                                <a href="#checkValidatePassword" >checkValidatePassword</a>
+                            </li>
+                            <li>
+                                <a href="#generateCaptcha" >generateCaptcha</a>
+                            </li>
+                            <li>
+                                <a href="#ngOnInit" >ngOnInit</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Async</span>
+                                <a href="#onSubmit" >onSubmit</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-constructor">
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor(ms: <a href="../injectables/MasterService.html" target="_self">MasterService</a>, msgService: MessageService)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="26" class="link-to-prism">src/app/login/login.component.ts:26</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>ms</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/MasterService.html" target="_self" >MasterService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>msgService</td>
+                                                  
+                                                        <td>
+                                                                    <code>MessageService</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+
+
+
+
+    <section data-compodoc="block-methods">
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="captchaChecking"></a>
+                    <span class="name">
+                        <span ><b>captchaChecking</b></span>
+                        <a href="#captchaChecking"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>captchaChecking()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="108"
+                                    class="link-to-prism">src/app/login/login.component.ts:108</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="checkPasswordValidity"></a>
+                    <span class="name">
+                        <span ><b>checkPasswordValidity</b></span>
+                        <a href="#checkPasswordValidity"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>checkPasswordValidity()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="78"
+                                    class="link-to-prism">src/app/login/login.component.ts:78</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="checkValidatePassword"></a>
+                    <span class="name">
+                        <span ><b>checkValidatePassword</b></span>
+                        <a href="#checkValidatePassword"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>checkValidatePassword()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="98"
+                                    class="link-to-prism">src/app/login/login.component.ts:98</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="generateCaptcha"></a>
+                    <span class="name">
+                        <span ><b>generateCaptcha</b></span>
+                        <a href="#generateCaptcha"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>generateCaptcha()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="88"
+                                    class="link-to-prism">src/app/login/login.component.ts:88</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ngOnInit"></a>
+                    <span class="name">
+                        <span ><b>ngOnInit</b></span>
+                        <a href="#ngOnInit"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>ngOnInit()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="35"
+                                    class="link-to-prism">src/app/login/login.component.ts:35</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="onSubmit"></a>
+                    <span class="name">
+                            <span class="modifier">Async</span>
+                        <span ><b>onSubmit</b></span>
+                        <a href="#onSubmit"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>onSubmit()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="39"
+                                    class="link-to-prism">src/app/login/login.component.ts:39</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+    <section data-compodoc="block-properties">
+    
+    <h3 id="inputs">
+        Properties
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="captchaCode"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>captchaCode</b></span>
+                        <a href="#captchaCode"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;&#x27;</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="18" class="link-to-prism">src/app/login/login.component.ts:18</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="defaultpayload"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>defaultpayload</b></span>
+                        <a href="#defaultpayload"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>JSON.parse(JSON.stringify(this.payload))</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="34" class="link-to-prism">src/app/login/login.component.ts:34</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="errorMsg"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>errorMsg</b></span>
+                        <a href="#errorMsg"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>false</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="25" class="link-to-prism">src/app/login/login.component.ts:25</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="hasLowercase"></a>
+                    <span class="name">
+                        <span ><b>hasLowercase</b></span>
+                        <a href="#hasLowercase"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>false</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="14" class="link-to-prism">src/app/login/login.component.ts:14</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="hasNumber"></a>
+                    <span class="name">
+                        <span ><b>hasNumber</b></span>
+                        <a href="#hasNumber"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>false</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="15" class="link-to-prism">src/app/login/login.component.ts:15</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="hasSymbol"></a>
+                    <span class="name">
+                        <span ><b>hasSymbol</b></span>
+                        <a href="#hasSymbol"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>false</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="16" class="link-to-prism">src/app/login/login.component.ts:16</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="hasUppercase"></a>
+                    <span class="name">
+                        <span ><b>hasUppercase</b></span>
+                        <a href="#hasUppercase"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>false</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="13" class="link-to-prism">src/app/login/login.component.ts:13</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="isCaptcha"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>isCaptcha</b></span>
+                        <a href="#isCaptcha"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>false</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="26" class="link-to-prism">src/app/login/login.component.ts:26</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="isCaptureMessage"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>isCaptureMessage</b></span>
+                        <a href="#isCaptureMessage"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>false</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="107" class="link-to-prism">src/app/login/login.component.ts:107</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="isSuccessful"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>isSuccessful</b></span>
+                        <a href="#isSuccessful"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>false</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="23" class="link-to-prism">src/app/login/login.component.ts:23</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="isValidPattern"></a>
+                    <span class="name">
+                        <span ><b>isValidPattern</b></span>
+                        <a href="#isValidPattern"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>false</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="17" class="link-to-prism">src/app/login/login.component.ts:17</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="msg"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>msg</b></span>
+                        <a href="#msg"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;&#x27;</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="11" class="link-to-prism">src/app/login/login.component.ts:11</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="password"></a>
+                    <span class="name">
+                        <span ><b>password</b></span>
+                        <a href="#password"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;&#x27;</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="12" class="link-to-prism">src/app/login/login.component.ts:12</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="passwordRegex"></a>
+                    <span class="name">
+                        <span ><b>passwordRegex</b></span>
+                        <a href="#passwordRegex"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>/^(?&#x3D;.*[A-Z])(?&#x3D;.*[a-z])(?&#x3D;.*[!@#$%^&amp;*()_+{}|:&quot;&lt;&gt;?[\];&#x27;,.\/\\])(?&#x3D;.*\d).{8,}$/</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="19" class="link-to-prism">src/app/login/login.component.ts:19</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="passwordVisible"></a>
+                    <span class="name">
+                        <span ><b>passwordVisible</b></span>
+                        <a href="#passwordVisible"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>false</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="87" class="link-to-prism">src/app/login/login.component.ts:87</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="payload"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>payload</b></span>
+                        <a href="#payload"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>{
+    userName: &#x27;&#x27;,
+    password: &#x27;&#x27;,
+    email: &#x27;&#x27;,
+    userCaptcha:&#x27;&#x27;
+  }</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="28" class="link-to-prism">src/app/login/login.component.ts:28</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="uiData"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>uiData</b></span>
+                        <a href="#uiData"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>[]</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="24" class="link-to-prism">src/app/login/login.component.ts:24</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+</section>
+
+</div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component } from &#x27;@angular/core&#x27;;
+import { MasterService } from &#x27;../master.service&#x27;;
+import { MessageService } from &#x27;primeng/api&#x27;;
+
+@Component({
+  selector: &#x27;app-login&#x27;,
+  templateUrl: &#x27;./login.component.html&#x27;,
+  styleUrls: [&#x27;./login.component.css&#x27;]
+})
+export class LoginComponent {
+  public msg: any &#x3D; &#x27;&#x27;;
+  password: string &#x3D; &#x27;&#x27;;
+  hasUppercase: boolean &#x3D; false;
+  hasLowercase: boolean &#x3D; false;
+  hasNumber: boolean &#x3D; false;
+  hasSymbol: boolean &#x3D; false;
+  isValidPattern:boolean&#x3D;false;
+  public captchaCode: any &#x3D; &#x27;&#x27;;
+  passwordRegex &#x3D;/^(?&#x3D;.*[A-Z])(?&#x3D;.*[a-z])(?&#x3D;.*[!@#$%^&amp;*()_+{}|:&quot;&lt;&gt;?[\];&#x27;,.\/\\])(?&#x3D;.*\d).{8,}$/
+  // /^(?&#x3D;.*[A-Z])(?&#x3D;.*[a-z])(?&#x3D;.*[!@#$%^&amp;*()_+{}|:&quot;&lt;&gt;?[\];&#x27;,.\/\\])(?&#x3D;.*\d)[A-Za-z\d!@#$%^&amp;*()_+{}|:&quot;&lt;&gt;?[\];&#x27;,.\/\\]{8,}$/;
+  // //^(?&#x3D;.*[A-Z])(?&#x3D;.*[a-z])(?&#x3D;.*\d)(?&#x3D;.*[!@#$%^&amp;*()_+{}|:&quot;&lt;&gt;?[\];&#x27;,.\/\\])(?&#x3D;.*[^\w\d\s])\S{8,}$/;
+
+  public isSuccessful &#x3D; false;
+  public uiData: any &#x3D; [];
+  public errorMsg: any &#x3D; false;
+  public isCaptcha: boolean &#x3D; false;
+  constructor(private ms: MasterService, private msgService: MessageService) {}
+  public payload: any &#x3D; {
+    userName: &#x27;&#x27;,
+    password: &#x27;&#x27;,
+    email: &#x27;&#x27;,
+    userCaptcha:&#x27;&#x27;
+  };
+  public defaultpayload: any &#x3D; JSON.parse(JSON.stringify(this.payload));
+  ngOnInit(): void {
+    this.generateCaptcha();
+  }
+
+  async onSubmit() {
+    if (this.payload.password &#x3D;&#x3D; &#x27;&#x27; || this.payload.email &#x3D;&#x3D; &#x27;&#x27; || this.payload.userCaptcha &#x3D;&#x3D; &#x27;&#x27; ) {
+      this.msgService.add({
+        severity: &#x27;error&#x27;,
+        summary: &#x27;Error&#x27;,
+        detail: &#x27;username and passord and Captcha  required!&#x27;,
+      });
+      return;
+    }
+   
+if( this.isCaptcha || this.errorMsg){
+  this.generateCaptcha();
+  if(this.isCaptcha ){    
+    this.isCaptureMessage&#x3D;true;
+  }
+  return;
+}else{
+ 
+  //   let payload &#x3D; {
+  //     email: this.payload.email,
+  //     password: this.payload.password,
+      
+  //   };
+
+  //   let apitype &#x3D; &#x27;post&#x27;;
+  //   this.uiData &#x3D; await this.ms.postApiCall(&#x27;/login&#x27;, apitype, payload);
+  //   if (this.uiData[&#x27;statusCode&#x27;] &#x3D;&#x3D; 200) {
+  //     alert(&#x27;Registration Success&#x27;);
+  //     console.log(this.uiData);
+  //     localStorage.setItem(&#x27;Token&#x27;, this.uiData[&#x27;token&#x27;]);
+  //     localStorage.setItem(&#x27;User&#x27;, this.uiData.data[&#x27;userName&#x27;]);
+  //     this.payload &#x3D; this.defaultpayload;
+  //     window.location.href &#x3D; &#x27;/Dashbard&#x27;;
+  //   } else {
+  //     this.msg &#x3D; this.uiData[&#x27;message&#x27;];
+  //     this.isSuccessful &#x3D; true;
+  //   }
+  }
+  }
+  checkPasswordValidity() {
+    this.hasUppercase &#x3D; /[A-Z]/.test(this.payload.password)
+    this.hasLowercase &#x3D; /[a-z]/.test(this.payload.password)
+    this.hasNumber &#x3D; /[0-9]/.test(this.payload.password)
+    this.hasSymbol &#x3D; /[^a-zA-Z0-9]/.test(this.payload.password)
+    this.isValidPattern &#x3D;/^(?&#x3D;.*[A-Z])(?&#x3D;.*[a-z])(?&#x3D;.*[!@#$%^&amp;*()_+{}|:&quot;&lt;&gt;?[\];&#x27;,.\/\\])(?&#x3D;.*\d).{8,}$/.test(this.payload.password)
+    //  /^(?&#x3D;.*[A-Z])[A-Z][a-z]+[!@#$%^&amp;*()_+{}|:&quot;&lt;&gt;?[\];&#x27;,.\/\\]+\d+$/.test(this.payload.password);
+    this.payload.userCaptcha&#x3D;&#x27;&#x27;
+  }
+  passwordVisible &#x3D; false;
+  generateCaptcha() {
+    const characters &#x3D;
+      &#x27;ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789&#x27;;
+    let captcha &#x3D; &#x27;&#x27;;
+    for (let i &#x3D; 0; i &lt; 4; i++) {
+      captcha +&#x3D; characters.charAt(
+        Math.floor(Math.random() * characters.length)
+      );
+    }   this.captchaCode &#x3D; captcha;
+  }
+  checkValidatePassword(){
+    if (!this.passwordRegex.test(this.payload.password)) {
+      this.errorMsg &#x3D; true;
+      return;
+    }else {
+      this.errorMsg &#x3D; false;
+    }
+    this.payload.userCaptcha&#x3D;&#x27;&#x27;
+  }
+  public isCaptureMessage:boolean &#x3D; false;
+  captchaChecking(){
+    this.isCaptureMessage &#x3D; false;
+    if (this.payload.userCaptcha &#x3D;&#x3D;&#x3D; this.captchaCode ) {
+      this.isCaptcha &#x3D; false;
+    } else {
+      this.isCaptcha &#x3D; true;
+    }
+  }
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="templateData">
+        <pre class="line-numbers"><code class="language-html">&lt;div class&#x3D;&quot;content_page_header shadow-1&quot;&gt;
+    &lt;div class&#x3D;&quot;company_logo&quot;&gt;
+      &lt;a href&#x3D;&quot;./dashboard.html&quot;&gt;
+        &lt;img src&#x3D;&quot;./assets/Suvarna Logo1.png&quot; alt&#x3D;&quot;&quot;
+      /&gt;&lt;/a&gt;
+    &lt;/div&gt;
+  
+    &lt;div class&#x3D;&quot;menu_icon&quot;&gt;
+      &lt;i class&#x3D;&quot;fa-solid fa-bars&quot;&gt;&lt;/i&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+  &lt;div&gt;
+    &lt;div style&#x3D;&quot;display: flex; justify-content: center&quot;&gt;
+      &lt;p-card
+        header&#x3D;&quot;𝓵𝓸𝓰𝓲𝓷&quot;
+        class&#x3D;&quot;shadow-5 login&quot;
+        [style]&#x3D;&quot;{ width: &#x27;26rem&#x27;, height: &#x27;33rem&#x27;}&quot;
+      &gt;
+        &lt;div
+          style&#x3D;&quot;
+            background-color: rgb(241, 39, 86);
+            color: rgb(236, 230, 230);
+            text-align: center;
+          &quot;
+          *ngIf&#x3D;&quot;isSuccessful&quot;
+        &gt;
+          {{ msg }}
+        &lt;/div&gt;
+        &lt;div class&#x3D;&quot;mt-4 photo justify-content-center ml-8&quot;&gt;
+          &lt;img
+            src&#x3D;&quot;../assets/loginicon.webp&quot;
+            alt&#x3D;&quot;&quot;
+            height&#x3D;&quot;150px&quot;
+            width&#x3D;&quot;150px&quot;
+          /&gt;
+        &lt;/div&gt;
+        &lt;div class&#x3D;&quot;field p-5 ml-3 mt-0&quot;&gt;
+          &lt;div class&#x3D;&quot;field mb-4&quot;&gt;
+            &lt;span class&#x3D;&quot;p-float-label&quot;&gt;
+              &lt;input
+                id&#x3D;&quot;float-input&quot;
+                type&#x3D;&quot;email&quot;
+                [(ngModel)]&#x3D;&quot;payload.email&quot;
+                pInputText
+                required
+                class&#x3D;&quot;p-invalid width &quot;
+              /&gt;
+              &lt;label for&#x3D;&quot;float-input&quot;&gt;Email &lt;/label&gt;
+            &lt;/span&gt;
+          &lt;/div&gt;
+  
+          &lt;div class&#x3D;&quot;field mb-4&quot;&gt;
+            &lt;span class&#x3D;&quot;p-float-label&quot;&gt;
+              &lt;p-password
+                [(ngModel)]&#x3D;&quot;payload.password&quot;
+                placeholder&#x3D;&quot;Enter Password&quot;
+                id&#x3D;&quot;float-input&quot; [maxlength]&#x3D;&quot;8&quot;
+                
+                [feedback]&#x3D;&quot;true&quot;
+                (keyup)&#x3D;&quot;checkPasswordValidity()&quot;
+                promptLabel&#x3D;&quot;Password&quot;
+                (input)&#x3D;&quot;checkValidatePassword()&quot;
+                [toggleMask]&#x3D;&quot;true&quot; &gt;
+                &lt;ng-template pTemplate&#x3D;&quot;header&quot;&gt;
+                  &lt;p&gt;Must contain:&lt;/p&gt;
+                  &lt;ul&gt;
+                    &lt;li&gt;
+                      &lt;i class&#x3D;&quot;pi pi-check green&quot;  *ngIf&#x3D;&quot;hasUppercase&quot;&gt;&lt;/i&gt;
+                      &lt;i class&#x3D;&quot;pi pi-times red&quot; *ngIf&#x3D;&quot;!hasUppercase&quot;&gt;&lt;/i&gt;
+                      At least one uppercase letter (A-Z)
+                    &lt;/li&gt;
+                    &lt;li&gt;
+                      &lt;i class&#x3D;&quot;pi pi-check green&quot;  *ngIf&#x3D;&quot;hasLowercase&quot;&gt;&lt;/i&gt;
+                      &lt;i class&#x3D;&quot;pi pi-times red&quot; *ngIf&#x3D;&quot;!hasLowercase&quot;&gt;&lt;/i&gt;
+                      At least one lowercase letter (a-z)
+                    &lt;/li&gt;
+                    &lt;li&gt;
+                      &lt;i class&#x3D;&quot;pi pi-check green&quot;  *ngIf&#x3D;&quot;hasSymbol&quot;&gt;&lt;/i&gt;
+                      &lt;i class&#x3D;&quot;pi pi-times red&quot; *ngIf&#x3D;&quot;!hasSymbol&quot;&gt;&lt;/i&gt;
+                    &lt;/li&gt; 
+                      &lt;!-- At least one symbol (e.g.,!@#$%^&amp;*)   --&gt;
+                    &lt;li &gt;
+                      &lt;i class&#x3D;&quot;pi pi-check green&quot;  *ngIf&#x3D;&quot;hasNumber&quot;&gt;&lt;/i&gt;
+                      &lt;i class&#x3D;&quot;pi pi-times red&quot; *ngIf&#x3D;&quot;!hasNumber&quot;&gt;&lt;/i&gt;
+  
+                      At least one number (0-9)&lt;/li&gt;
+                   
+                 
+                    &lt;li &gt;
+                      &lt;i class&#x3D;&quot;pi pi-check&quot;  *ngIf&#x3D;&quot;payload.password.length &#x3D;&#x3D; 8&quot;&gt;&lt;/i&gt;
+                      &lt;i class&#x3D;&quot;pi pi-times&quot; *ngIf&#x3D;&quot;payload.password.length !&#x3D; 8&quot;&gt;&lt;/i&gt;
+                      Minimum length 8
+                  &lt;/ul&gt;
+                &lt;/ng-template&gt;
+              &lt;/p-password&gt;
+          
+              &lt;!-- &lt;span *ngIf&#x3D;&quot;errorMsg&quot; style&#x3D;&quot;color: red&quot;&gt;Invalid Password &lt;/span&gt; --&gt;
+              &lt;span *ngIf&#x3D;&quot;!isValidPattern &amp;&amp; payload.password !&#x3D;&#x3D; &#x27;&#x27;&quot; style&#x3D;&quot;color: red&quot;&gt;Password does not follow above the required pattern&lt;/span&gt;
+            &lt;/span&gt;
+          &lt;/div&gt;
+          &lt;div class&#x3D;&quot;formgrid grid&quot;&gt;
+            &lt;div class&#x3D;&quot;field col&quot;&gt;
+              &lt;div class&#x3D;&quot;captcha-box mb-1 mr-1 field col&quot;&gt;
+                {{ captchaCode }}
+              &lt;/div&gt;
+              &lt;i class&#x3D;&quot;pi pi-replay ml-3&quot; (click)&#x3D;&quot;generateCaptcha()&quot;&gt;&lt;/i&gt;
+              &lt;div&gt;
+              &lt;input
+                id&#x3D;&quot;captcha&quot;
+                type&#x3D;&quot;text&quot;
+                class&#x3D;&quot;width&quot;
+                pInputText
+                [(ngModel)]&#x3D;&quot;payload.userCaptcha&quot;
+                (input)&#x3D;&quot;captchaChecking()&quot;
+                placeholder&#x3D;&quot;Enter Captcha&quot;
+                name&#x3D;&quot;captcha&quot;
+                maxlength&#x3D;&quot;4&quot;
+                required
+              /&gt;
+            &lt;/div&gt;
+              &lt;span *ngIf&#x3D;&quot;isCaptureMessage&quot;&gt;Invalid Captcha&lt;/span&gt;
+            &lt;/div&gt;
+          &lt;/div&gt;
+  
+          &lt;div class&#x3D;&quot;flex justify-end&quot;&gt;
+            &lt;p-toast&gt;&lt;/p-toast&gt;
+            &lt;div class&#x3D;&quot;field p-button-success ml-6&quot;&gt;
+              &lt;button
+                pButton
+                type&#x3D;&quot;button&quot;
+                label&#x3D;&quot;Login&quot;
+                (click)&#x3D;&quot;onSubmit()&quot;
+              &gt;&lt;/button&gt;
+            &lt;/div&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+      &lt;/p-card&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+  </code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="styleData">
+                <p class="comment">
+                    <code>./login.component.css</code>
+                </p>
+                <pre class="line-numbers"><code class="language-scss">.login{
+    position: absolute;
+    left: 38%;
+    top: 20%;
+ 
+}
+:host ::ng-deep.mt-0{
+    margin-top: -3rem !important
+}   
+.photo {
+    margin-top: -2.5rem !important;
+    margin: auto;
+  }
+  :host ::ng-deep
+  .p-toast-top-right {
+      top: 20px;
+      right: 39%;
+  }
+
+
+
+
+
+
+
+/* Login page */
+.login_header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: var(--basic_padding);
+    box-shadow: var(--basic_xs_box_shadow);
+    background-color: lightblue;
+    width: 100%;
+}
+
+.company_logo img {
+    width:10%;
+}
+
+
+.providing_logo {
+    font-size: 26px;
+    color: var(--login_theme_blue_color);
+}
+.header{
+    height: 45px;
+}
+:host ::ng-deep .width{
+    width: 17rem;
+}
+.captcha-box {
+    border: 2px solid #3498db;
+    padding: 10px;
+    border-radius: 10px;
+    background-color: #74eeb3;
+    display: inline-block;
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1);
+    font-family: &#x27;Eras Demi ITC&#x27;, cursive; /* Apply the font-family */
+    width: 100px;
+    text-align: center;
+    transform-style: preserve-3d;
+    transform-origin: 0fr;
+    perspective-origin: 200%;
+  }
+  
+  .captcha-box ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .captcha-box li {
+    display: inline-block;
+    font-size: 50px;
+    font-weight: bold;
+    color: #3498db;
+  
+    letter-spacing: 10px;
+    margin: 10px 5px;
+    transition: all 0.3s ease;
+    text-align: center;
+  }
+ 
+  .green{
+color: green;
+  }
+.red{
+    color: red;
+}</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="tree">
+        <div id="tree-container"></div>
+        <div class="tree-legend">
+            <div class="title">
+                <b>Legend</b>
+            </div>
+            <div>
+                <div class="color htmlelement"></div><span>Html element</span>
+            </div>
+            <div>
+                <div class="color component"></div><span>Component</span>
+            </div>
+            <div>
+                <div class="color directive"></div><span>Html element with directive</span>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+<script src="../js/libs/vis.min.js"></script>
+<script src="../js/libs/htmlparser.js"></script>
+<script src="../js/libs/deep-iterator.js"></script>
+<script>
+        var COMPONENT_TEMPLATE = '<div><div class="content_page_header shadow-1">    <div class="company_logo">      <a href="./dashboard.html">        <img src="./assets/Suvarna Logo1.png" alt=""      /></a>    </div>      <div class="menu_icon">      <i class="fa-solid fa-bars"></i>    </div>  </div>  <div>    <div style="display: flex; justify-content: center">      <p-card        header="𝓵𝓸𝓰𝓲𝓷"        class="shadow-5 login"        [style]="{ width: \'26rem\', height: \'33rem\'}"      >        <div          style="            background-color: rgb(241, 39, 86);            color: rgb(236, 230, 230);            text-align: center;          "          *ngIf="isSuccessful"        >          {{ msg }}        </div>        <div class="mt-4 photo justify-content-center ml-8">          <img            src="../assets/loginicon.webp"            alt=""            height="150px"            width="150px"          />        </div>        <div class="field p-5 ml-3 mt-0">          <div class="field mb-4">            <span class="p-float-label">              <input                id="float-input"                type="email"                [(ngModel)]="payload.email"                pInputText                required                class="p-invalid width "              />              <label for="float-input">Email </label>            </span>          </div>            <div class="field mb-4">            <span class="p-float-label">              <p-password                [(ngModel)]="payload.password"                placeholder="Enter Password"                id="float-input" [maxlength]="8"                                [feedback]="true"                (keyup)="checkPasswordValidity()"                promptLabel="Password"                (input)="checkValidatePassword()"                [toggleMask]="true" >                <ng-template pTemplate="header">                  <p>Must contain:</p>                  <ul>                    <li>                      <i class="pi pi-check green"  *ngIf="hasUppercase"></i>                      <i class="pi pi-times red" *ngIf="!hasUppercase"></i>                      At least one uppercase letter (A-Z)                    </li>                    <li>                      <i class="pi pi-check green"  *ngIf="hasLowercase"></i>                      <i class="pi pi-times red" *ngIf="!hasLowercase"></i>                      At least one lowercase letter (a-z)                    </li>                    <li>                      <i class="pi pi-check green"  *ngIf="hasSymbol"></i>                      <i class="pi pi-times red" *ngIf="!hasSymbol"></i>                    </li>                       <!-- At least one symbol (e.g.,!@#$%^&*)   -->                    <li >                      <i class="pi pi-check green"  *ngIf="hasNumber"></i>                      <i class="pi pi-times red" *ngIf="!hasNumber"></i>                        At least one number (0-9)</li>                                                        <li >                      <i class="pi pi-check"  *ngIf="payload.password.length == 8"></i>                      <i class="pi pi-times" *ngIf="payload.password.length != 8"></i>                      Minimum length 8                  </ul>                </ng-template>              </p-password>                        <!-- <span *ngIf="errorMsg" style="color: red">Invalid Password </span> -->              <span *ngIf="!isValidPattern && payload.password !== \'\'" style="color: red">Password does not follow above the required pattern</span>            </span>          </div>          <div class="formgrid grid">            <div class="field col">              <div class="captcha-box mb-1 mr-1 field col">                {{ captchaCode }}              </div>              <i class="pi pi-replay ml-3" (click)="generateCaptcha()"></i>              <div>              <input                id="captcha"                type="text"                class="width"                pInputText                [(ngModel)]="payload.userCaptcha"                (input)="captchaChecking()"                placeholder="Enter Captcha"                name="captcha"                maxlength="4"                required              />            </div>              <span *ngIf="isCaptureMessage">Invalid Captcha</span>            </div>          </div>            <div class="flex justify-end">            <p-toast></p-toast>            <div class="field p-button-success ml-6">              <button                pButton                type="button"                label="Login"                (click)="onSubmit()"              ></button>            </div>          </div>        </div>      </p-card>    </div>  </div>  </div>'
+    var COMPONENTS = [{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'LoginComponent', 'selector': 'app-login'},{'name': 'PagenotfoundComponent', 'selector': 'app-pagenotfound'}];
+    var DIRECTIVES = [];
+    var ACTUAL_COMPONENT = {'name': 'LoginComponent'};
+</script>
+<script src="../js/tree.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
+            var COMPODOC_CURRENT_PAGE_URL = 'LoginComponent.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+       <script src="../js/libs/zepto.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>
