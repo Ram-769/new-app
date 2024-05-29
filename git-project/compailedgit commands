@@ -1,0 +1,15 @@
+git clone --branch master https://github.com/Ram-769/new-app.git  ----this is for clone project
+git remote -v -----existed url names
+git branch --- branch name
+git commit -m"latest code"
+git add . ---add new
+git push origin master ---push to github
+git checkout master  ---- commmit code for which branch do u want
+git merge main  ---merge code one branch to another branch
+git log main  list of commites
+git show <commit-hash> what u have commit
+git revert  <commit-hash>If you want to completely undo this commit and return to the state before it, you can use the following command:
+
+
+
+

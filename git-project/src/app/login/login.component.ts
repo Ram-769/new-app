@@ -58,13 +58,14 @@ if( this.isCaptcha || this.errorMsg){
     };
     let apitype = 'post';
     this.uiData = await this.ms.postApiCall(await this.ms.getApiPath('login'), apitype, payload);
+    console.log( this.uiData,' this.uiData')
     if (this.uiData['status'] == 200) {
       alert('Registration Success');
       console.log(this.uiData);
       // localStorage.setItem('Token', this.uiData['token']);
       // localStorage.setItem('User', this.uiData.data['userName']);
       this.payload = this.defaultpayload;
-      // window.location.href = '/login';
+     window.location.href = '/dashboard';
     } else {
       this.msg = this.uiData['message'];
       this.isSuccessful = true;

@@ -1,0 +1,36 @@
+<p>menulist works!</p>
+<p-card class="shadow-2 p-list h-80rem" >
+
+    <div class="flex justify-content-end mt-0">
+    <i class="pi-align-justify" style="font-size: 1rem; position: relative;"></i>   </div>
+
+    <!-- <div class="content_page_body">
+        <ul class="content_tabs">
+            <li class="tab_active"><a href="/Dashbard">Dashboard</a></li>
+            <li><a href="/Dashbard/users">User</a></li>
+            <li><a href="/Dashbard/Employee">Employees</a></li>
+            <li><a href="/Dashbard/Products">Product</a></li>
+            <li><a href="/Dashbard/stocks">Stock</a></li>
+            <li><a href="/Dashbard/prod_category">Prod Category</a></li>
+        </ul>
+    </div>
+     -->
+
+    <p-menu [model]="item" >
+        <ng-template pTemplate="item" let-item class="p-menu-h">
+          <a [routerLink]="item.routerLink">
+            <i class="p-menuitem-icon pi pi-{{ item.icon }}"></i>
+            <span class="p-menuitem-text">{{ item.label }}</span>
+           
+          </a>
+        </ng-template>
+      </p-menu>
+
+<div class="content_page_footer">
+    <label class="last_login">
+        Last Login :<span class="last_login_time"> 9:30 Yesterday</span>
+    </label>
+</div>
+
+
+</p-card>

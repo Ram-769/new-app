@@ -22,6 +22,9 @@ import { RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { animation } from '@angular/animations';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MenuModule } from 'primeng/menu';
+
+
 @NgModule({
   declarations: [],
   imports: [
@@ -48,7 +51,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     ToastModule,
     AccordionModule,
     MegaMenuModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    MenuModule,
+   
     
   ],
   exports:[
@@ -72,7 +77,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     ToastModule,
     ListboxModule,
     MegaMenuModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    MenuModule,
+   
   ]
 })
 export class SharedModule {
