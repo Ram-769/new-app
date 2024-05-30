@@ -11,6 +11,7 @@ import { HomeComponent } from './home/home.component';
 import { MenulistComponent } from './menulist/menulist.component';
 import { RenderchildComponent } from './renderchild/renderchild.component';
 import { DispalychildComponent } from './dispalychild/dispalychild.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { DispalychildComponent } from './dispalychild/dispalychild.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    SharedModule
+    SharedModule,
+    BrowserAnimationsModule
  
   ],
   providers: [MasterService,MessageService],

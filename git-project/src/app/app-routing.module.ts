@@ -14,6 +14,22 @@ const routes: Routes = [
       {
         path: '',
         loadChildren: () => import('./dasboard/dasboard.module').then(m => m.DasboardModule)
+      },
+      {
+        path: 'users',
+        loadChildren: () => import('./users/users.module').then(m => m.UsersModule)
+      },
+      {
+        path: 'Employee',
+        loadChildren: () => import('./employee/employee.module').then(m => m.EmployeeModule)
+      },
+      {
+        path: 'stocks',
+        loadChildren: () => import('./stocks/stocks.module').then(m => m.StocksModule)
+      },
+      {
+        path: 'Products',
+        loadChildren: () => import('./product/product.module').then(m => m.ProductModule) 
       }
     ]
   },

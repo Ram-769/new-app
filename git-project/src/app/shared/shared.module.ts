@@ -21,7 +21,6 @@ import { MegaMenuModule } from 'primeng/megamenu';
 import { RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { animation } from '@angular/animations';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MenuModule } from 'primeng/menu';
 
 
@@ -51,7 +50,6 @@ import { MenuModule } from 'primeng/menu';
     ToastModule,
     AccordionModule,
     MegaMenuModule,
-    BrowserAnimationsModule,
     MenuModule,
    
     
@@ -77,7 +75,6 @@ import { MenuModule } from 'primeng/menu';
     ToastModule,
     ListboxModule,
     MegaMenuModule,
-    BrowserAnimationsModule,
     MenuModule,
    
   ]
