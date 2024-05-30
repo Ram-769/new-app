@@ -10,11 +10,11 @@ export class MenulistComponent implements OnInit{
  
   ngOnInit() {
     this.item= [
-      { label: 'Dashboard', icon: 'pi pi-home', routerLink: '/Dashbard' },
-      { label: 'Users', icon: 'pi pi-users', routerLink: '/Dashbard/users' },
-      { label: 'Products', icon: 'pi pi-bitcoin', routerLink: '/Dashbard/Products' },
-      { label: 'Employee', icon: 'pi pi-users', routerLink: '/Dashbard/Employee' },
-      { label: 'Stocks items', icon: 'pi pi-database', routerLink: '/Dashbard/stocks' },
+      { label: 'Dashboard', icon: 'pi pi-home', routerLink: '/dashboard' },
+      { label: 'Users', icon: 'pi pi-users', routerLink: '/dashboard/users' },
+      { label: 'Products', icon: 'pi pi-bitcoin', routerLink: '/dashboard/Products' },
+      { label: 'Employee', icon: 'pi pi-users', routerLink: '/dashboard/Employee' },
+      { label: 'Stocks items', icon: 'pi pi-database', routerLink: '/dashboard/stocks' },
     ];
   }
 }

@@ -12,7 +12,9 @@ import { MenulistComponent } from './menulist/menulist.component';
 import { RenderchildComponent } from './renderchild/renderchild.component';
 import { DispalychildComponent } from './dispalychild/dispalychild.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ChartModule } from 'primeng/chart';
 
+import { TableModule } from 'primeng/table';
 @NgModule({
   declarations: [
     AppComponent,
@@ -27,7 +29,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     BrowserModule,
     AppRoutingModule,
     SharedModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    ChartModule,
+    TableModule
  
   ],
   providers: [MasterService,MessageService],
