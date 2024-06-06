@@ -1,25 +1,24 @@
 
-<div class="card">
+<div class="card m-6 " style="width: 80%;height: 80%;">
   <p-table
     [columns]="cols"
     [value]="USERS"
-    [tableStyle]="{ 'min-width': '90rem' }"
+    [tableStyle]="{ 'min-width': '900px' }"
     [rowHover]="true"
     [rows]="10"
     [showCurrentPageReport]="true"
     [rowsPerPageOptions]="[10, 25, 50]"
     id="htmlData"
     #dt
-    [scrollable]="true" scrollHeight="500px"  
+    class="p-datatable p-datatable-resizable p-datatable-loading-icon"
+    [scrollable]="true" scrollHeight="550px"  
     currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries"
     [filterDelay]="0"
     [paginator]="true"
     [globalFilterFields]="['name', 'email', 'phone']"
     [frozenValue]="lockedCustomers" 
   >
-
     <ng-template pTemplate="caption">
-     
       <div class="flex">
         <div class="table-header">
             List of Users

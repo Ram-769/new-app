@@ -5,7 +5,8 @@
       /></a>
     </div>
   
-    <div class="menu_icon">
+<p-toast></p-toast>
+    <div  class="menu_icon">
       <i class="fa-solid fa-bars"></i>
     </div>
   </div>
@@ -16,16 +17,8 @@
         class="shadow-5 login"
         [style]="{ width: '26rem', height: '33rem'}"
       >
-        <div
-          style="
-            background-color: rgb(241, 39, 86);
-            color: rgb(236, 230, 230);
-            text-align: center;
-          "
-          *ngIf="isSuccessful"
-        >
-          {{ msg }}
-        </div>
+      <a *ngIf="isSuccessful"><label class="sinup-label" routerLink="/sinup">𝓼𝓲𝓷𝓾𝓹x</label></a>
+       
         <div class="mt-4 photo justify-content-center ml-8">
           <img
             src="../assets/loginicon.webp"

@@ -15,6 +15,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ChartModule } from 'primeng/chart';
 
 import { TableModule } from 'primeng/table';
+import { SinupComponent } from './sinup/sinup.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -23,7 +24,8 @@ import { TableModule } from 'primeng/table';
     HomeComponent,
     MenulistComponent,
     RenderchildComponent,
-    DispalychildComponent
+    DispalychildComponent,
+    SinupComponent
   ],
   imports: [
     BrowserModule,

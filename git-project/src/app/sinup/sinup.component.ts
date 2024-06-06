@@ -1,13 +1,12 @@
-import { Component } from '@angular/core';
+import { Component , ElementRef, ViewChild} from '@angular/core';
 import { MasterService } from '../master.service';
 import { MessageService } from 'primeng/api';
-
 @Component({
-  selector: 'app-login',
-  templateUrl: './login.component.html',
-  styleUrls: ['./login.component.css']
+  selector: 'app-sinup',
+  templateUrl: './sinup.component.html',
+  styleUrls: ['./sinup.component.css']
 })
-export class LoginComponent {
+export class SinupComponent {
   public msg: any = '';
   password: string = '';
   hasUppercase: boolean = false;
@@ -22,13 +21,21 @@ export class LoginComponent {
   public errorMsg: any = false;
   public isCaptcha: boolean = false;
   constructor(private ms: MasterService, private msgService: MessageService) {}
-
+  public otp = {
+    firstDigit: "",
+    secondDigit: "",
+    thirdDigit: "",
+    fourthDigit: "",
+    "flag": "v"
+  }
   public payload: any = {
     userName: '',
     password: '',
     email: '',
-    userCaptcha:''
+    userCaptcha:'',
+    otp:this.otp.firstDigit+""+this.otp.secondDigit+this.otp.thirdDigit+this.otp.fourthDigit
   };
+  public isOtpfield=false;
   public defaultpayload: any = JSON.parse(JSON.stringify(this.payload));
   ngOnInit(): void {
     this.generateCaptcha();
@@ -60,16 +67,16 @@ if( this.isCaptcha || this.errorMsg){
     this.uiData = await this.ms.postApiCall(await this.ms.getApiPath('login'), apitype, payload);
    console.log( this.uiData ," this.uiData ")
     if (this.uiData['status'] == 200) {
-      this.msgService.add({ severity: 'success', summary: 'Success', detail: this.uiData['message'] });
+      this.msgService.add({ severity: 'success', summary: 'Success', detail: 'Message Content' });
       console.log(this.uiData);
       // localStorage.setItem('Token', this.uiData['token']);
       // localStorage.setItem('User', this.uiData.data['userName']);
-      await this.wait(10000);
       this.payload = this.defaultpayload;
-      window.location.href = '/dashboard';
+     window.location.href = '/dashboard';
     } else {
-      this.msgService.add({ severity: 'info', summary: 'Info',detail: this.uiData['message']  });
-      this.isSuccessful=true;
+      this.msgService.add({ severity: 'info', summary: 'Info', detail: 'Message Content' });
+      this.msg = this.uiData['message'];
+      this.isSuccessful = true;
     }
   }
   }
@@ -111,11 +118,49 @@ if( this.isCaptcha || this.errorMsg){
       this.isCaptcha = true;
     }
   }
-  wait(time: number): Promise<void> {
-    return new Promise((resolve) => {
-      setTimeout(() => {
-        resolve();
-      }, time);
+
+  changeFocus(data: any, next: any, prev: any) {
+    if (data.length == 1) {
+        const nextElement = document.getElementById(next);
+        if (nextElement) {
+            nextElement.focus();
+        }
+    } else {
+        const prevElement = document.getElementById(prev);
+        if (prevElement) {
+            prevElement.focus();
+        }
+    }
+}
+async sentOtp(){
+
+  if (this.payload.password == '' || this.payload.email == '' || this.payload.userCaptcha == '' ) {
+    this.msgService.add({
+      severity: 'error',
+      summary: 'Error',
+      detail: 'username and passord and Captcha  required!',
     });
+    return;
   }
+  this.isOtpfield=true;
+  let payload = {
+    email: this.payload.email,
+    password: this.payload.password, 
+  };
+  let apitype = 'post';
+  this.uiData = await this.ms.postApiCall(await this.ms.getApiPath('requestotp'), apitype, payload);
+  console.log( this.uiData ," this.uiData ")
+  this.msgService.add({
+    severity: 'info', summary: 'Info', 
+    detail:this.uiData.message,
+  });
+}
+
+wait(time: number): Promise<void> {
+  return new Promise((resolve) => {
+    setTimeout(() => {
+      resolve();
+    }, time);
+  });
+}
 }

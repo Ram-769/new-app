@@ -24,6 +24,7 @@ import { animation } from '@angular/animations';
 import { MenuModule } from 'primeng/menu';
 import { ChartModule } from 'primeng/chart';
 import { MultiSelectModule } from 'primeng/multiselect';
+
 @NgModule({
   declarations: [],
   imports: [

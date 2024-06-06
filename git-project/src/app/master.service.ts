@@ -22,8 +22,12 @@ export class MasterService {
 
   // Decrypt data using AES
   decryptData(encryptedData: string, secretKey: string): any {
-    const bytes = CryptoJS.AES.decrypt(encryptedData, secretKey);
-    const decryptedData = bytes.toString(CryptoJS.enc.Utf8);
+    console.log(encryptedData)
+   
+    let bytes = CryptoJS.AES.decrypt(encryptedData, secretKey);
+    let decryptedData = bytes.toString(CryptoJS.enc.Utf8);
+    // console.log(decryptedData.data)
+    // return decryptedData
     return JSON.parse(decryptedData); // Parse JSON if the original data was an object
   }
 
@@ -37,7 +41,7 @@ export class MasterService {
   }
 
   // Get API path from configuration
-  getApiPath(keyParam: string) {
+  getApiPath(keyParam: string) {``
     if (Object.keys(this.masterObject).length == 0) {
       this.loadConnectorConfig();
     }
@@ -58,7 +62,7 @@ export class MasterService {
     complete: () => {
     }
   };
-
+ 
   // API call method
   async postApiCall(urlkey: any, apiType: string, payloadData?: any) {
     const ServiceUrl = this.nodeUrl + urlkey;
@@ -79,11 +83,15 @@ export class MasterService {
       } else if (apiType === "get") {
         resultData = await firstValueFrom(this.http.get(ServiceUrl));
       }
-        return resultData // Decrypting the received data
+      else {
+        throw new Error(`Invalid API type: ${apiType}`);
+      }
+        return resultData// Decrypting the received data
 
-    } catch (error) {
+    } catch (error:any) {
       console.error('Error during API call:', error);
-      throw error;
+      // throw error;
+      return resultData = error['error'];
     }
   }
 }

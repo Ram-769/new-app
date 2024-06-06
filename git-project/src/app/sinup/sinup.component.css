@@ -10,6 +10,7 @@
 .photo {
     margin-top: -2.5rem !important;
     margin: auto;
+    margin-left: 45px;
   }
   :host ::ng-deep
   .p-toast-top-right {
@@ -17,13 +18,13 @@
       right: 39%;
   }
 
-
-.sinup-label{
-  top: -59px;
-  margin-left: 289px;
-  position: relative;
-  font-size: 22px;
+  :host ::ng-deep.otp_button{
+    width: 100px;
+    height: 15px;
+    margin-top: -5px;
+    justify-content: center;
 }
+
 
 
 
@@ -93,3 +94,18 @@ color: green;
 .red{
     color: red;
 }
+/* Mimic PrimeNG 17 OTP styles */
+  .captcha-field {
+    -webkit-user-select: none; /* Disable selection on Chrome, Safari, and Opera */
+    -moz-user-select: none; /* Disable selection on Firefox */
+    -ms-user-select: none; /* Disable selection on Internet Explorer/Edge */
+    user-select: none; /* Disable selection on non-browser platforms */
+  }
+  .otp-box{display: flex; width: 200px;}
+.otp-box input{text-align: center;}
+.otp-box input:nth-child(1){margin-right: 5px;}
+.otp-box input:nth-child(2){margin:0px 5px;}
+.otp-box input:nth-child(3){margin:0px 5px;}
+.otp-box input:nth-child(4){margin-left: 5px;}
+.signin-card {width: 300px;margin: auto;margin-top: 25px;}
+.otp-wrapper{margin: 0rem 1.7rem;}

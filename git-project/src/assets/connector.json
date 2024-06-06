@@ -1,6 +1,6 @@
 {
     
         "login":"/login",
-        "getAll":"allUsers_Data"
-    
+        "getAll":"allUsers_Data",
+    "requestotp":"/otp_request"
 }
