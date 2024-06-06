@@ -4,11 +4,14 @@ import { LoginComponent } from './login/login.component';
 import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
 import { RenderchildComponent } from './renderchild/renderchild.component';
 import { SinupComponent } from './sinup/sinup.component';
+import { WelcomeComponent } from './welcome/welcome.component';
 
 const routes: Routes = [
-  { path: '', redirectTo: 'login', pathMatch: 'full' },
+  { path: '', redirectTo: 'welcome', pathMatch: 'full' },
+  {path:'welcome',component:WelcomeComponent},
   { path: 'login', component: LoginComponent },
   { path: 'sinup', component: SinupComponent },
+ 
   {
     path: 'dashboard',
     component: RenderchildComponent,

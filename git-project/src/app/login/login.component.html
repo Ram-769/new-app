@@ -13,18 +13,18 @@
   <div>
     <div style="display: flex; justify-content: center">
       <p-card
-        header="𝓵𝓸𝓰𝓲𝓷"
+        header="login"
         class="shadow-5 login"
         [style]="{ width: '26rem', height: '33rem'}"
       >
       <a *ngIf="isSuccessful"><label class="sinup-label" routerLink="/sinup">𝓼𝓲𝓷𝓾𝓹x</label></a>
        
-        <div class="mt-4 photo justify-content-center ml-8">
+        <div class="mt-4 photo justify-content-center mb-4">
           <img
-            src="../assets/loginicon.webp"
+            src="../assets/user.png"
             alt=""
-            height="150px"
-            width="150px"
+            height="100px"
+            width="100px"
           />
         </div>
         <div class="field p-5 ml-3 mt-0">
@@ -90,7 +90,7 @@
           </div>
           <div class="formgrid grid">
             <div class="field col">
-              <div class="captcha-box mb-1 mr-1 field col">
+              <div class="captcha-box mb-1 mr-1 field col captcha-field">
                 {{ captchaCode }}
               </div>
               <i class="pi pi-replay ml-3" (click)="generateCaptcha()"></i>
@@ -98,7 +98,7 @@
               <input
                 id="captcha"
                 type="text"
-                class="width"
+                class="width "
                 pInputText
                 [(ngModel)]="payload.userCaptcha"
                 (input)="captchaChecking()"
@@ -125,6 +125,7 @@
           </div>
         </div>
       </p-card>
+      <div class="background"></div>
     </div>
   </div>
   

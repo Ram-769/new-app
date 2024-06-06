@@ -14,6 +14,7 @@ export class SinupComponent {
   hasNumber: boolean = false;
   hasSymbol: boolean = false;
   isValidPattern:boolean=false;
+  public nodeOtp="";
   public captchaCode: any = '';
   passwordRegex =/^(?=.*[A-Z])(?=.*[a-z])(?=.*[!@#$%^&*()_+{}|:"<>?[\];',.\/\\])(?=.*\d).{8,}$/
   public isSuccessful = false;
@@ -42,11 +43,11 @@ export class SinupComponent {
   }
 
   async onSubmit() {
-    if (this.payload.password == '' || this.payload.email == '' || this.payload.userCaptcha == '' ) {
+    if (this.payload.password == '' || this.payload.email == '' || this.payload.userCaptcha == '' || this.nodeOtp == this.payload.otp  ) {
       this.msgService.add({
         severity: 'error',
         summary: 'Error',
-        detail: 'username and passord and Captcha  required!',
+        detail: 'username passord Captcha and OTP  required !',
       });
       return;
     }
@@ -64,7 +65,7 @@ if( this.isCaptcha || this.errorMsg){
       password: this.payload.password, 
     };
     let apitype = 'post';
-    this.uiData = await this.ms.postApiCall(await this.ms.getApiPath('login'), apitype, payload);
+    this.uiData = await this.ms.postApiCall(await this.ms.getApiPath('sinup'), apitype, payload);
    console.log( this.uiData ," this.uiData ")
     if (this.uiData['status'] == 200) {
       this.msgService.add({ severity: 'success', summary: 'Success', detail: 'Message Content' });
@@ -74,7 +75,7 @@ if( this.isCaptcha || this.errorMsg){
       this.payload = this.defaultpayload;
      window.location.href = '/dashboard';
     } else {
-      this.msgService.add({ severity: 'info', summary: 'Info', detail: 'Message Content' });
+      this.msgService.add({ severity: 'info', summary: 'Info',detail: this.uiData.message });
       this.msg = this.uiData['message'];
       this.isSuccessful = true;
     }
@@ -118,7 +119,6 @@ if( this.isCaptcha || this.errorMsg){
       this.isCaptcha = true;
     }
   }
-
   changeFocus(data: any, next: any, prev: any) {
     if (data.length == 1) {
         const nextElement = document.getElementById(next);
@@ -149,11 +149,14 @@ async sentOtp(){
   };
   let apitype = 'post';
   this.uiData = await this.ms.postApiCall(await this.ms.getApiPath('requestotp'), apitype, payload);
-  console.log( this.uiData ," this.uiData ")
+  console.log(this.uiData,"this.uiData")
   this.msgService.add({
     severity: 'info', summary: 'Info', 
     detail:this.uiData.message,
   });
+  if( this.uiData.status == 200){
+    this.nodeOtp =this.uiData.data['otp']
+  }
 }
 
 wait(time: number): Promise<void> {

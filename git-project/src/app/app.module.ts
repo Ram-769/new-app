@@ -16,6 +16,7 @@ import { ChartModule } from 'primeng/chart';
 
 import { TableModule } from 'primeng/table';
 import { SinupComponent } from './sinup/sinup.component';
+import { WelcomeComponent } from './welcome/welcome.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -25,7 +26,8 @@ import { SinupComponent } from './sinup/sinup.component';
     MenulistComponent,
     RenderchildComponent,
     DispalychildComponent,
-    SinupComponent
+    SinupComponent,
+    WelcomeComponent
   ],
   imports: [
     BrowserModule,
