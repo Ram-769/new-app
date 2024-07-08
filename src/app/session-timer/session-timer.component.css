@@ -1,0 +1,21 @@
+/* :host ::ng-deep .p-card-content {margin: 0px !important;padding: 30px !important;line-height: auto;}
+:host ::ng-deep .p-card {border-radius: 0.80rem;}*/
+/* body {background-color: rgba(33, 32, 32, 0.77) !important;}  */
+.session-input{ text-align: center;}
+ .lo-cards h1{color: #1f1d1dd6;}
+ .lo-cards p{color: #5f5b5bc2;font-weight: bold; margin-top: -60px;}
+@media only screen and (min-width:768px){
+    .session-expired{width: 400px;margin:13rem auto;}
+}
+.session-expired-wrapper{position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);}
+:host ::ng-deep .p-card{
+    width: 342px;
+    height: 135px;
+}
+body {
+    margin: auto;
+    background-color: #ededed1c;
+}

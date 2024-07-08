@@ -1,0 +1,177 @@
+<div class="content_page_header shadow-1">
+  <div class="company_logo">
+    <a href="./dashboard.html">
+      <img src="./assets/Suvarna Logo1.png" alt=""
+    /></a>
+  </div>
+
+<p-toast></p-toast>
+  <div  class="menu_icon">
+    <i class="fa-solid fa-bars"></i>
+  </div>
+</div>
+<div>
+  <div style="display: flex; justify-content: center">
+
+    <p-card
+      header="sinup"
+      class="shadow-7 login"
+      [style]="{ width: '26rem', height: '35rem'}"
+    >
+      <!-- <div
+        style="
+          background-color: rgb(241, 39, 86);
+          color: rgb(236, 230, 230);
+          text-align: center;
+        "
+        *ngIf="isSuccessful">
+        {{ msg }}
+      </div> -->
+      <div class="mt-4 photo justify-content-center mt-9 mb-5">
+        <img
+         class="photo"
+          src="../assets/user.png"
+          alt=""
+          height="100px"
+          width="100px"
+        />
+      </div>
+      <div class="field p-5 ml-3 mt-0">
+        <div class="field mb-4">
+          <span class="p-float-label">
+            <input
+              id="float-input"
+              type="email"
+              [(ngModel)]="payload.email"
+              pInputText
+              required
+              class="p-invalid width "
+            />
+            <label for="float-input">Email </label>
+          </span>
+        </div>
+
+        <div class="field mb-4">
+          <span class="p-float-label">
+            <p-password
+              [(ngModel)]="payload.password"
+              placeholder="Enter Password"
+              id="float-input" [maxlength]="8"      
+              [feedback]="true"
+              (keyup)="checkPasswordValidity()"
+              promptLabel="Password"
+              (input)="checkValidatePassword()"
+              [toggleMask]="true" >
+              <ng-template pTemplate="header">
+                <p>Must contain:</p>
+                <ul>
+                  <li>
+                    <i class="pi pi-check green"  *ngIf="hasUppercase"></i>
+                    <i class="pi pi-times red" *ngIf="!hasUppercase"></i>
+                    At least one uppercase letter (A-Z)
+                  </li>
+                  <li>
+                    <i class="pi pi-check green"  *ngIf="hasLowercase"></i>
+                    <i class="pi pi-times red" *ngIf="!hasLowercase"></i>
+                    At least one lowercase letter (a-z)
+                  </li>
+                  <li>
+                    <i class="pi pi-check green"  *ngIf="hasSymbol"></i>
+                    <i class="pi pi-times red" *ngIf="!hasSymbol"></i>
+                    At least one symbol (e.g.,!#$%^&*) 
+                  </li> 
+                    
+                  <li >
+                    <i class="pi pi-check green"  *ngIf="hasNumber"></i>
+                    <i class="pi pi-times red" *ngIf="!hasNumber"></i>
+                    At least one number (0-9)</li>
+                  <li >
+                    <i class="pi pi-check"  *ngIf="payload.password.length == 8"></i>
+                    <i class="pi pi-times" *ngIf="payload.password.length != 8"></i>
+                    Minimum length 8
+                </ul>
+              </ng-template>
+            </p-password>
+        
+            <!-- <span *ngIf="errorMsg" style="color: red">Invalid Password </span> -->
+            <span *ngIf="!isValidPattern && payload.password !== ''" style="color: red">Password does not follow above the required pattern</span>
+          </span>
+        </div>
+       
+        <div class="formgrid grid">
+          <div class="field col">
+            <div class="captcha-box mb-1 mr-1 field col captcha-field">
+              {{ captchaCode }}
+            </div>
+            <i class="pi pi-replay ml-3" (click)="generateCaptcha()"></i>
+            <div>
+            <input
+              id="captcha"
+              type="text"
+              class="width"
+              pInputText
+              [(ngModel)]="payload.userCaptcha"
+              (input)="captchaChecking()"
+              placeholder="Enter Captcha"
+              name="captcha"
+              maxlength="4"
+              required
+            />
+          </div>
+            <span *ngIf="isCaptureMessage">Invalid Captcha</span>
+          </div>
+        </div>
+        <div class="p-fluid p-mt-4"> 
+          <div class="mb-2 flex"><label for="LoginName" class="mr-3">OTP REQUEST:</label>
+            <div class="field p-button-success  " *ngIf="!isOtpfield">
+              <button
+                pButton
+                type="button"
+                label="SentOTP"
+                class="otp_button"
+                (click)="sentOtp()"
+              ></button>
+              </div>   
+              <div class="field p-button-success  " *ngIf="isOtpfield">
+                <button
+                  pButton
+                  type="button"
+                  label="ResendOTP"
+                  class="otp_button"
+                  (click)="sentOtp()"
+                ></button>
+                </div>  
+            </div>
+          <div class="flex mb-2 ml-9">    
+              <div class="otp-box mb-3  " *ngIf="isOtpfield">
+                  <input type="text" autofocus required maxlength="1" name="otp1" id="otp1" pInputText class="p-inputtext-sm"
+                   oninput="this.value = this.value.replace(/[^0-9]/g, '').replace(/(\..*)\./g, '$1 ');"
+                   (input)="changeFocus(otp.firstDigit, 'otp2','otp1')"  autocomplete="off" [(ngModel)]="otp.firstDigit">
+                  <input type="text" autofocus required maxlength="1" name="otp2" id="otp2" pInputText class="p-inputtext-sm"
+                  oninput="this.value = this.value.replace(/[^0-9]/g, '').replace(/(\..*)\./g, '$1 ');"
+                  (input)="changeFocus(otp.secondDigit, 'otp3','otp1')"  autocomplete="off" [(ngModel)]="otp.secondDigit">
+                  <input type="text" autofocus required maxlength="1" name="otp3" id="otp3" pInputText class="p-inputtext-sm"
+                  oninput="this.value = this.value.replace(/[^0-9]/g, '').replace(/(\..*)\./g, '$1 ');"
+                  (input)="changeFocus(otp.thirdDigit, 'otp4','otp2')" autocomplete="off" [(ngModel)]="otp.thirdDigit">
+                  <input type="text" autofocus required maxlength="1" name="otp4" id="otp4" pInputText class="p-inputtext-sm"
+                  oninput="this.value = this.value.replace(/[^0-9]/g, '').replace(/(\..*)\./g, '$1 ');"
+                  (input)="changeFocus(otp.fourthDigit, 'otp4','otp3')" autocomplete="off" [(ngModel)]="otp.fourthDigit">
+          </div>  
+          </div>  
+      </div>
+        <div class="flex justify-end">
+          <p-toast></p-toast>
+          <div class="field p-button-success ml-6">
+            <button
+              pButton
+              type="button"
+              label="sinup"
+              (click)="onSubmit()"
+            ></button>
+          </div>
+        </div>
+      </div>
+    </p-card>
+    <div class="background"></div>
+  </div>
+</div>

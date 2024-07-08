@@ -1,0 +1,191 @@
+<div class="col-md-4">
+  <p-button (click)="createUser()" label="CreateUser"></p-button>
+</div>
+<div class="card m-6 " style="width: 80%;height: 80%;">
+  <p-table
+    [columns]="cols"
+    [value]="USERS"
+    [tableStyle]="{ 'min-width': '900px' }"
+    [rowHover]="true"
+    [rows]="10"
+    [showCurrentPageReport]="true"
+    [rowsPerPageOptions]="[10, 25, 50]"
+    id="htmlData"
+    #dt
+    class="p-datatable p-datatable-resizable p-datatable-loading-icon"
+    [scrollable]="true" scrollHeight="550px"  
+    currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries"
+    [filterDelay]="0"
+    [paginator]="true"
+    [globalFilterFields]="['name', 'email', 'phone']"
+    [frozenValue]="lockedCustomers" 
+  >
+    <ng-template pTemplate="caption">
+      <div class="flex">
+        <div class="table-header">
+            List of Users
+            <span class="p-input-icon-left">
+              <i class="pi pi-search"></i>
+              <input
+                pInputText
+                type="text"
+                (input)="onInput($event)"
+                placeholder="Global Search"
+              />
+            </span>
+          </div>
+        <button type="button" pButton pRipple icon="pi pi-file" (click)="dt.exportCSV()" class="mr-2" pTooltip="CSV" tooltipPosition="bottom"></button>
+        <button type="button" pButton pRipple icon="pi pi-file-excel" (click)="exportExcel()" class="p-button-success mr-2" pTooltip="XLS" tooltipPosition="bottom"></button>
+        <button type="button" pButton pRipple icon="pi pi-file-pdf" (click)="exportPdf()" class="p-button-warning mr-2" pTooltip="PDF" tooltipPosition="bottom"></button>
+        <button type="button" pButton pRipple icon="pi pi-filter" (click)="dt.exportCSV({ selectionOnly: true })" class="p-button-info ml-auto" pTooltip="Selection Only" tooltipPosition="bottom"></button>
+    </div>
+    </ng-template>
+    <ng-template pTemplate="header" let-columns>
+      <tr>
+        <th *ngFor="let col of columns">
+          {{ col.header }}
+        </th>
+      </tr>
+      <tr>
+        <th>
+          <p-columnFilter type="text" field="id"></p-columnFilter>
+        </th>
+        <th>
+          <p-columnFilter type="text" field="name"></p-columnFilter>
+        </th>
+        <th>
+          <p-columnFilter type="text" field="email"></p-columnFilter>
+        </th>
+        <th>
+          <p-columnFilter type="text" field="phone"></p-columnFilter>
+        </th>
+        <th>
+            <p-columnFilter type="text" field="name"></p-columnFilter>
+          </th>
+          <th>
+            <p-columnFilter type="text" field="email"></p-columnFilter>
+          </th>
+          <th>
+            <p-columnFilter type="text" field="phone"></p-columnFilter>
+          </th>
+          <th>
+            <p-columnFilter type="text" field="name"></p-columnFilter>
+          </th>
+          <th>
+            <p-columnFilter type="text" field="email"></p-columnFilter>
+          </th>
+          <th>
+            <p-columnFilter type="text" field="phone"></p-columnFilter>
+          </th>
+          <th>
+            <p-columnFilter type="text" field="phone"></p-columnFilter>
+          </th>
+      </tr>
+    </ng-template>
+    <ng-template  pTemplate="frozenbody" let-rowData let-columns="columns" let-index="rowIndex">
+      <tr>
+        <td *ngFor="let col of columns">
+          {{ rowData[col.field] }}
+        </td>
+        <td>
+            <button pButton pRipple type="button" [icon]="'pi pi-lock-open'" (click)="toggleLock(rowData,true,index)" class="p-button-sm p-button-text"></button>
+        </td>
+      </tr>
+    </ng-template>
+    <ng-template  pTemplate="body" let-rowData let-columns="columns" let-index="rowIndex">
+        <tr>
+          <td *ngFor="let col of columns">
+            {{ rowData[col.field] }}
+          </td>
+          <td>
+            <button pButton pRipple type="button" [icon]="'pi pi-lock'" [disabled]="lockedCustomers.length >= 2" (click)="toggleLock(rowData,false,index)" class="p-button-sm p-button-text"></button>
+        </td>
+        </tr>
+      </ng-template>
+  </p-table>
+</div>
+
+
+<p-dialog header="User Creation" [(visible)]="visible" [style]="{width: '50vw',height:'20vw'}">
+<div>
+  <div class="flex d-flex">
+
+      <div class="field mb-4 ">
+        <span class="p-float-label">
+          <input
+            id="float-input"
+            type="email"
+            pInputText
+            required
+            class="p-invalid width "
+          />
+          <label for="float-input">Name </label>
+        </span>
+      </div>
+        <div class="field mb-4 ml-1">
+        <span class="p-float-label">
+          <input
+            id="float-input"
+            type="email"
+            pInputText
+            required
+            class="p-invalid width "
+          />
+          <label for="float-input"> Email </label>
+        </span>
+      </div>
+      <div class="field mb-4 ml-1">
+        <span class="p-float-label ">
+          <input
+            id="float-input"
+            type="email"
+            pInputText
+            required
+            class="p-invalid width "
+          />
+          <label for="float-input"> Phone No </label>
+        </span>
+      </div>
+
+      
+     
+  </div>
+  <div class="flex d-flex">
+
+    <div class="field mb-4 ">
+      <span class="p-float-label">
+        <!-- [(ngModel)]="values" -->
+        <p-chips ></p-chips>
+        <label for="float-input">Enter Your Education details </label>
+      </span>
+    </div>
+      <div class="field mb-4 ml-1">
+      <span class="p-float-label">
+        <input
+          id="float-input"
+          type="email"
+          pInputText
+          required
+          class="p-invalid width "
+        />
+        <label for="float-input"> Email </label>
+      </span>
+    </div>
+    <div class="field mb-4 ml-1">
+      <span class="p-float-label ">
+        <input
+          id="float-input"
+          type="email"
+          pInputText
+          required
+          class="p-invalid width "
+        />
+        <label for="float-input"> Phone No </label>
+      </span>
+    </div>
+
+    
+   
+</div>
+</div>
+</p-dialog>

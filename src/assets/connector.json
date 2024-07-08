@@ -1,0 +1,9 @@
+{
+    
+        "login":"/login",
+        "getAll":"allUsers_Data",
+    "requestotplogin":"/req_otp_for_login",
+    "requestotpsinup":"/req_otp_for_sinup",
+    "sinup":"/sinup",
+   "changepassword": "/old_to_new_password"
+}

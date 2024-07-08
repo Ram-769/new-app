@@ -1,0 +1,40 @@
+/* You can add global styles to this file, and also import other style files */
+
+@import "primeng/resources/themes/lara-light-blue/theme.css";
+@import "primeng/resources/primeng.css";
+@import "primeicons/primeicons.css";
+.content_page_footer{
+    margin-top: 100%;
+}
+.login_header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: var(--basic_padding);
+    box-shadow: var(--basic_xs_box_shadow);
+    background-color: var(--white_color);
+    width: 100%;
+}
+
+.company_logo img {
+    width:10%;
+}
+
+
+.providing_logo {
+    font-size: 26px;
+    color: var(--login_theme_blue_color);
+}
+
+
+.header{
+   
+    height: 45px;
+}
+
+.content_page_footer{
+    margin-top: 100%;
+}
+.p-list{
+    height: 70%; 
+}

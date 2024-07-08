@@ -1,0 +1,28 @@
+.p-datatable {
+    position: relative;
+    width: 1324px;
+    margin-top: -47px;
+}
+.circle {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: 2px solid #3498db;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  .logoutlogo{
+    margin-top: -40px;
+    margin-right: 30px;
+  }
+  .content_page_header{
+    height: 60px;
+  }
+  
+  .logooo{
+    height: 25px;
+    width: 25px;
+  }
