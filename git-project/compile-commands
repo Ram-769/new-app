@@ -1,1 +1,0 @@
-npx compodoc -o docs -p tsconfig.json  "docment preparation"
